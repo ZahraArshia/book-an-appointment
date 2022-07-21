@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @user = User.find_by(name: params[:name])
     render json: @user, status: :ok
@@ -15,6 +17,17 @@ class Api::V1::UsersController < ApplicationController
       render json: @user, status: :created
     else
       render json: @payload, status: :bad_request
+    end
+  end
+
+  def show
+  end
+    
+  def update
+    if current_user.update_attributes(user_params)
+      render :show
+    else
+      render json: { errors: current_user.errors }, status: :unprocessable_entity
     end
   end
 
