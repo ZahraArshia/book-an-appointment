@@ -20,9 +20,8 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def show
-  end
-    
+  def show; end
+
   def update
     if current_user.update_attributes(user_params)
       render :show
