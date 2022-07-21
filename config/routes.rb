@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  scope :api, defaults: { format: :json } do
+    devise_for :users
+  end
 
      namespace :api, defaults: { format: 'json' } do
       namespace :v1, defaults: { format: 'json' } do
