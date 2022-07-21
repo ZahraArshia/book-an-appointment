@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   scope :api, defaults: { format: :json } do
-    devise_for :users
+    devise_for :users, controllers: { sessions: :sessions },
+                       path_names: { sign_in: :login }
   end
 
      namespace :api, defaults: { format: 'json' } do
