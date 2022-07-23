@@ -6,6 +6,10 @@
 # .gitignore
 node_modules/
 
+# Ignore VSCode folders
+.vscode
+.history
+
 # Ignore bundler config.
 /.bundle
 
